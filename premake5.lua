@@ -1,6 +1,6 @@
-workspace "OpenGLBoilerPlate"
+workspace "Shader"
     configurations { "Debug", "Release" }
-    startproject "OpenGLBoilerPlate"
+    startproject "Shader"
 
     flags { "MultiProcessorCompile" }
 
@@ -13,7 +13,7 @@ workspace "OpenGLBoilerPlate"
         optimize "Speed"
         flags { "LinkTimeOptimization" }
 
-project "OpenGLBoilerPlate"
+project "Shader"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++17"
