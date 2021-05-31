@@ -10,51 +10,39 @@ Learning Open Gl, Shaders and Ray tracing
 
 - https://learnopengl.com/book/book_pdf.pdf
 
-  Boilerplate from https://github.com/andersonfreitas/opengl-boilerplate
+  Boilerplate from https://github.com/HectorPeeters/opengl_premake_boilerplate.git
 
-## Cloning
+## Getting Started
 
-The `external/` folder contains all the external dependencies used, and they are tracked using git submodules. In order to compile the program, you should first clone the repository and then download the dependencies with `git submodule init` and `git submodule update`
+Since this project builds all libraries from source and includes these as submodules, don't forget to clone the project recursively.
 
-## Initializing GLEW
+### Prerequisites
 
-Before compiling, you should first generate the `include/` folder for GLFW:
+You will need premake5 to build this project. Download it [HERE](https://premake.github.io/download/html#v5).
 
-    cd external/glew
-    make extensions
+### Building
 
-## Build
+Building the project is very easy. Use premake to generate the project files for your platform. Then use the correct build system to build the project.
 
-    mkdir build && cd build
-    cmake ..
-    make
+#### Linux
 
-### Building with XCode
+```
+premake5 gmake
+make -j$(nproc)
+```
 
-    mkdir xcode && cd xcode
-    cmake -G "Xcode" ..
+#### Windows
 
-Then open the generated `Project.xcodeproj` project.
+```
+premake5 vs2019
+```
 
-If you don't have CMake installed on your Mac, the easist way is to install is with [Homebrew](http://brew.sh) using `brew install cmake`
+## Built With
 
-### Building with Visual Studio
+- GLFW [Github](https://github.com/glfw/glfw)
+- GLAD [Github](https://github.com/Dav1dde/glad)
+- GLM [Github](https://github.com/g-truc/glm)
 
-CMake comes with a diverse options of [generators](http://www.cmake.org/cmake/help/v2.8.8/cmake.html#section_Generators). Use the CMake GUI on Windows to automatically create a project solution based on this project.
+## License
 
-## Using a different dependency version
-
-If you want to use a different version of any dependency tracked as a submodule, you just need to checkout the desired version in the repository:
-
-    cd external/my_dep
-    git checkout XXX
-    cd ..
-    git add external/my_dep
-    git commit -m "Using my_dep at branch/tag XXX"
-
-## Dependencies
-
-- [GLFW](https://github.com/glfw/glfw)
-- [GLEW](http://github.com/nigels-com/glew.git)
-- [GLM](https://github.com/g-truc/glm)
-- [CMake](http://www.cmake.org/)
+This project is licensed under the MIT License.
