@@ -12,9 +12,9 @@ Learning Open Gl, Shaders and Ray tracing
 
   Boilerplate from https://github.com/HectorPeeters/opengl_premake_boilerplate.git
 
-## Getting Started
+## Cloning
 
-Since this project builds all libraries from source and includes these as submodules, don't forget to clone the project recursively.
+The `libs/` folder contains all the external dependencies used, and they are tracked using git submodules. In order to compile the program, you should first clone the repository and then download the dependencies with `git submodule init` and `git submodule update`
 
 ### Prerequisites
 
@@ -35,6 +35,7 @@ make -j$(nproc)
 
 ```
 premake5 vs2019
+premake5 gmake
 ```
 
 ## Built With
