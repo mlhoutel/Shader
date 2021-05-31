@@ -8,10 +8,7 @@
 
 int main()
 {
-    glm::vec3 vector(1, 0, 1);
-    printf("%f %f %f\n", vector.x, vector.y, vector.z);
-
-    Window window("OpenGL Boilerplate!!!", 960, 540, true);
+    Window window("Shader", 960, 540, true);
     window.Create();
 
     Shader shader("Basic", "res/basic.vert", "res/basic.frag");
@@ -38,10 +35,11 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 
         renderer.Start();
-        
-        for (int i = 0; i < 1000; i++) {
-            float x = (float)rand()/(float)(RAND_MAX);
-            float y = (float)rand()/(float)(RAND_MAX);
+
+        for (int i = 0; i < 10000; i++)
+        {
+            float x = (float)rand() / (float)(RAND_MAX);
+            float y = (float)rand() / (float)(RAND_MAX);
             renderer.DrawQuad(glm::vec2(x * window.GetSize().x, y * window.GetSize().y), glm::vec2(10.0f, 10.0f), glm::vec4(x, y * 0.5f, 0.2f, 1.0f));
         }
 
