@@ -1,5 +1,2 @@
 build/
 xcode/
-external/glew
-external/glfw
-external/glm
