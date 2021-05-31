@@ -14,6 +14,10 @@ Learning Open Gl, Shaders and Ray tracing
 
 ## Cloning
 
+```
+git clone https://github.com/mlhoutel/Shader.git --recurse-submodules
+```
+
 The `libs/` folder contains all the external dependencies used, and they are tracked using git submodules. In order to compile the program, you should first clone the repository and then download the dependencies with `git submodule init` and `git submodule update`
 
 ### Prerequisites
