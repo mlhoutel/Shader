@@ -11,9 +11,8 @@ int main()
     Window window("Shader", 960, 540, true);
     window.Create();
 
-    Shader shader("Basic", "res/basic.vert", "res/basic.frag");
-    if (!shader.Create())
-        return 1;
+    Shader shader("Raytracing", "res/shader.vert", "res/shader.frag");
+    if (!shader.Create()) { return 1; }
 
     Renderer2D renderer(shader, window.GetDataPointer(), 100);
     renderer.Create();
@@ -36,12 +35,7 @@ int main()
 
         renderer.Start();
 
-        for (int i = 0; i < 10000; i++)
-        {
-            float x = (float)rand() / (float)(RAND_MAX);
-            float y = (float)rand() / (float)(RAND_MAX);
-            renderer.DrawQuad(glm::vec2(x * window.GetSize().x, y * window.GetSize().y), glm::vec2(10.0f, 10.0f), glm::vec4(x, y * 0.5f, 0.2f, 1.0f));
-        }
+        renderer.DrawQuad(glm::vec2(), glm::vec2(window.GetSize().x, window.GetSize().y), glm::vec4(1, 1, 1, 1));
 
         renderer.End();
 
@@ -51,8 +45,7 @@ int main()
 
         renderer.DrawImGui();
 
-        if (show_demo_window)
-            ImGui::ShowDemoWindow(&show_demo_window);
+        // if (show_demo_window) { ImGui::ShowDemoWindow(&show_demo_window); }
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

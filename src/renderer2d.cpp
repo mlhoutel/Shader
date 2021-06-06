@@ -70,6 +70,7 @@ void Renderer2D::Start()
 
     m_Shader.Bind();
     m_Shader.UniformMat4("u_Projection", m_ProjectionMatrix);
+    m_Shader.Uniform2f("resolution", glm::vec2((float)m_WindowData->width, (float)m_WindowData->height));
     m_Shader.Unbind();
 
     m_VertexCount = 0;
