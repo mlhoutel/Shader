@@ -35,7 +35,7 @@ int main()
 
         renderer.Start();
 
-        renderer.DrawQuad(glm::vec2(), glm::vec2(window.GetSize().x, window.GetSize().y), glm::vec4(1, 1, 1, 1));
+        renderer.DrawQuad(glm::vec2(), glm::vec2(window.GetSize().x, window.GetSize().y), glm::vec4(1,1,1,1));
 
         renderer.End();
 

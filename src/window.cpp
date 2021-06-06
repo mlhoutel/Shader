@@ -43,14 +43,15 @@ bool Window::Create()
 
     glfwSetWindowUserPointer(m_Window, &m_Data);
 
-    glfwSetWindowSizeCallback(m_Window, [](GLFWwindow *window, int width, int height) {
-        WindowData *data = (WindowData *)glfwGetWindowUserPointer(window);
-        data->width = width;
-        data->height = height;
-        GL(glViewport(0, 0, width, height));
+    glfwSetWindowSizeCallback(m_Window, [](GLFWwindow *window, int width, int height)
+                              {
+                                  WindowData *data = (WindowData *)glfwGetWindowUserPointer(window);
+                                  data->width = width;
+                                  data->height = height;
+                                  GL(glViewport(0, 0, width, height));
 
-        printf("Resized %d, %d\n", data->width, data->height);
-    });
+                                  //printf("Resized %d, %d\n", data->width, data->height);
+                              });
 
     glfwMakeContextCurrent(m_Window);
 

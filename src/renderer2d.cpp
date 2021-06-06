@@ -67,10 +67,15 @@ void Renderer2D::Destroy()
 void Renderer2D::Start()
 {
     m_ProjectionMatrix = glm::ortho(0.0f, (float)m_WindowData->width, (float)m_WindowData->height, 0.0f, 0.0f, -1000.0f);
+    m_Resolution = glm::vec3((float)m_WindowData->width, (float)m_WindowData->height, 1.0f);
+    m_Origin = glm::vec3();
+    m_Rotation = glm::vec3();
 
     m_Shader.Bind();
     m_Shader.UniformMat4("u_Projection", m_ProjectionMatrix);
-    m_Shader.Uniform2f("resolution", glm::vec2((float)m_WindowData->width, (float)m_WindowData->height));
+    m_Shader.Uniform3f("u_Resolution", m_Resolution);
+    // m_Shader.Uniform3f("u_Origin", m_Origin);
+    // m_Shader.Uniform3f("m_Rotation", m_Rotation);
     m_Shader.Unbind();
 
     m_VertexCount = 0;
@@ -89,7 +94,7 @@ void Renderer2D::End()
 
 void Renderer2D::DrawQuad(glm::vec2 position, glm::vec2 scale, glm::vec4 color)
 {
-    if (m_VertexCount >= m_MaxBatchVertexCount)
+    if (m_VertexCount >= static_cast<unsigned int>(m_MaxBatchVertexCount))
     {
         DrawBatch();
         m_VertexCount = 0;

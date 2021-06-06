@@ -48,6 +48,11 @@ private:
     glm::mat4 m_ProjectionMatrix;
     glm::mat4 m_ViewMatrix;
 
+    glm::vec3 m_Resolution;
+    glm::vec3 m_Origin;
+    glm::vec3 m_Rotation;
+    float m_Time;
+
     WindowData *m_WindowData;
 
     const int m_MaxBatchVertexCount;
